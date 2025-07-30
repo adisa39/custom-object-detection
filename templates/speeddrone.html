@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>speed rport</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>-->
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script>
+
+    <!--<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+        -->
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="static/style.css" />
+  </head>
+
+  <body onload="loadingReg()" style="background-color: cornflowerblue">
+    <h1 style="color: #fff; text-transform: uppercase; text-align: center">
+      Speed Report Sheet
+    </h1>
+    <p>
+      <a href="/"
+        ><span
+          style="
+            float: right;
+            padding: 10pt;
+            background-color: tomato;
+            color: white;
+          "
+          >Home</span
+        ></a
+      >
+    </p>
+    <div class="tbl-header">
+      <table id="tResult1" cellpadding="0" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Car info</th>
+            <th>Car image</th>
+            <th>Plate image</th>
+          </tr>
+        </thead>
+        {% for i in range(l,0,-1) %}
+        <tr>
+          <td>{{dt[i]}}</td>
+          <td>{{ca[i]}}</td>
+          <td>
+            <a href="{{car[i]}}" target="_blank"
+              ><img width="120px" src="{{car[i]}}"
+            /></a>
+          </td>
+          <td>
+            <a href="{{ur[i]}}" target="_blank"
+              ><img width="120px" src="{{ur[i]}}"
+            /></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <script>
+      // '.tbl-content' consumed little space for vertical scrollbar, scrollbar width depend on browser/os/platfrom. Here calculate the scollbar width .
+      $(window)
+        .on("load resize ", function () {
+          var scrollWidth =
+            $(".tbl-content").width() - $(".tbl-content table").width();
+          $(".tbl-header").css({ "padding-right": scrollWidth });
+        })
+        .resize();
+    </script>
+  </body>
+</html>

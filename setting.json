@@ -1,0 +1,9 @@
+{
+    "camera": "../video/slow_traffic.mp4",
+    "zone_name": "road",
+    "sound_state": "enable",
+    "objects": [
+        "1",
+        "2"
+    ]
+}
