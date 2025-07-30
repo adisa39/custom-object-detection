@@ -1,0 +1,10 @@
+/yoloEnv
+/__init__.py
+/__pycache__/
+/.idea/
+/.vscode/
+/v8_models/*
+/static/
+/sound/
+/yolo/
+/models
